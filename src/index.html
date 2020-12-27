@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Youtube</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <i class="fab fa-youtube"></i>
+        <span>Youtube</span>
+      </div>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-ellipsis-v"></i>
+      </div>
+    </header>
+    <section class="player">
+      <div id="player"></div>
+    </section>
+    <!-- Video Info -->
+    <div class="infoAndUpNext">
+      <section class="info">
+        <!-- Metadata -->
+        <div class="metadata">
+          <ul class="hashtags">
+            <li>#harrypotter</li>
+            <li>#말포이</li>
+            <li>#해리포터크리스마스</li>
+          </ul>
+          <div class="titleAndButton">
+            <span class="title clamp"
+              >크리스마스 따위, 즐겨줄 생각 없어.🌙말포이의 공부 ASMR Ambience
+              /인어디블 사운드, 슬리데린 기숙사</span
+            >
+            <button class="moreBtn">
+              <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+          <span class="views">
+            1M views 1 month ago
+          </span>
+        </div>
+        <!-- Actions -->
+        <div class="actions">
+          <ul>
+            <li>
+              <button><i class="fas fa-thumbs-up"></i><span>1K</span></button>
+            </li>
+            <li>
+              <button><i class="fas fa-thumbs-down"></i><span>1K</span></button>
+            </li>
+            <li>
+              <button><i class="fas fa-share"></i><span>1K</span></button>
+            </li>
+            <li>
+              <button><i class="fas fa-plus"></i><span>1K</span></button>
+            </li>
+            <li>
+              <button><i class="fas fa-flag"></i><span>1K</span></button>
+            </li>
+          </ul>
+        </div>
+        <!-- Channel description -->
+        <div class="channel">
+          <div class="metadata">
+            <img src="image/hp3.jpg" alt="" />
+            <div class="info">
+              <span class="name">NZ Ambience</span>
+              <span class="subscribers">100M subscribers</span>
+            </div>
+          </div>
+          <button class="subscribe">subscribe</button>
+        </div>
+      </section>
+      <section class="upNext">
+        <span class="title">Up next</span>
+        <ul>
+          <li class="item">
+            <div class="img"><img src="image/hp1.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title"
+                >해리포터 마법사의돌 호그와트 첫 입학
+                (결말포함/명장면/비하인드/OST/쥬시가십) harry potter and the
+                sorcerer's stone</span
+              >
+              <span class="name">쥬시가십</span>
+              <span class="views">82K views</span>
+            </div>
+            <button class="moreBtn">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </li>
+          <li class="item">
+            <div class="img"><img src="image/hp2.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title"
+                >공부할 때 듣는 해리포터 OST 모음🧙‍♂️🧙‍♀️ [motemote│모트모트│𝐒𝐓𝐔𝐃𝐘
+                𝐌𝐎𝐎𝐃│공부할때 듣는
+                음악│플레이리스트│PLAYLIST│해리포터│OST]</span
+              >
+              <span class="name">모트모트 TV</span>
+              <span class="views">82K views</span>
+            </div>
+            <button class="moreBtn">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </li>
+          <li class="item">
+            <div class="img"><img src="image/hp3.jpg" alt="" /></div>
+            <div class="info">
+              <span class="title"
+                >크리스마스 따위, 즐겨줄 생각 없어.🌙말포이의 공부 ASMR Ambience
+                /인어디블 사운드, 슬리데린 기숙사</span
+              >
+              <span class="name">낮잠 NZ Ambience </span>
+              <span class="views">82K views</span>
+            </div>
+            <button class="moreBtn">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <script>
+      document.cookie = "safeCookie=youtube; SameSite=Lax";
+      document.cookie = "crossCooke=youtube; SameSite=None; Secure";
+
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.id = "iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      console.log(firstScriptTag);
+
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      //player 변수 설정
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "360",
+          width: "640",
+          videoId: "vZ_RjXlSJxk",
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        // event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+
+      const playBtn = document.getElementById("playBtn");
+      playBtn.addEventListener("click", () => {
+        player.playVideo();
+      });
+      const stopBtn = document.getElementById("stopBtn");
+      stopBtn.addEventListener("click", () => {
+        player.stopVideo();
+      });
+      const pauseBtn = document.getElementById("pauseBtn");
+      pauseBtn.addEventListener("click", () => {
+        player.pauseVideo();
+      });
+    </script>
+    <!-- <script type="module" src="./youtubePlayer.js">
+    </script> -->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
