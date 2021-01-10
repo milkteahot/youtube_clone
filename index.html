@@ -31,6 +31,8 @@
     <section class="player">
       <div id="player"></div>
     </section>
+
+
     <!-- Video Info -->
     <div class="infoAndUpNext">
       <section class="info">
@@ -85,7 +87,14 @@
           </div>
           <button class="subscribe">subscribe</button>
         </div>
+        <!-- bookmark -->
+        <!-- <div class="bookmarks">
+          <button id="bookmark">
+          <i class="fas fa-bookmark"></i>
+          </button>
+        </div> -->
       </section>
+      
       <section class="upNext">
         <span class="title">Up next</span>
         <ul>
@@ -144,21 +153,28 @@
       tag.src = "https://www.youtube.com/iframe_api";
       tag.id = "iframe_api";
       var firstScriptTag = document.getElementsByTagName("script")[0];
-      console.log(firstScriptTag);
+      // console.log(firstScriptTag);
 
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       //player 변수 설정
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player("player", {
-          height: "360",
-          width: "640",
+          height: "180",
+          width: "320",
           videoId: "vZ_RjXlSJxk",
           events: {
             onReady: onPlayerReady,
             onStateChange: onPlayerStateChange
           }
         });
+      }
+      // https://www.youtube.com/watch?v=vZ_RjXlSJxk&t=1s
+      //우쿨렐레 -143K1YbEio
+
+      function bookmark(time){
+        console.log(time,'time');
+        player.playVideo(time);
       }
 
       function onPlayerReady(event) {
@@ -173,18 +189,20 @@
         player.stopVideo();
       }
 
-      const playBtn = document.getElementById("playBtn");
-      playBtn.addEventListener("click", () => {
-        player.playVideo();
+      const bookmarkBtn = document.getElementById("bookmark");
+      bookmarkBtn.addEventListener("click", () => {
+        console.log('bookmark clicked');
+        console.log(bookmark(10))
+        player.bookmark(10);
       });
-      const stopBtn = document.getElementById("stopBtn");
-      stopBtn.addEventListener("click", () => {
-        player.stopVideo();
-      });
-      const pauseBtn = document.getElementById("pauseBtn");
-      pauseBtn.addEventListener("click", () => {
-        player.pauseVideo();
-      });
+      // const stopBtn = document.getElementById("stopBtn");
+      // stopBtn.addEventListener("click", () => {
+      //   player.stopVideo();
+      // });
+      // const pauseBtn = document.getElementById("pauseBtn");
+      // pauseBtn.addEventListener("click", () => {
+      //   player.pauseVideo();
+      // });
     </script>
     <!-- <script type="module" src="./youtubePlayer.js">
     </script> -->
