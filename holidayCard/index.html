@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="card-container">
+        <p>Drag and drop!</p>
+        <div class="card">
+            <div class="card__inner">
+                <h1 contentEditable="true">Happy new year!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="decorations">
+        <div class="icon icon--draggable glasses">🥂<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon icon--draggable champagne">🍾<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon icon--draggable sparks">✨<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon icon--draggable christmas">🎄<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon icon--draggable fireworks">🎇<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon icon--draggable santa">🎅🏻<div class="buttons"><button data-type="-">-</button><button data-type="+">+</button><button data-type="rotate">🔄</button></div>
+        </div>
+        <div class="icon color" title="Color"><input type="color" value="#010101" id="color" /><label>Color</label></div>
+        <div class="icon color" title="Background"><input type="color" value="#ffffff" id="background" /><label>Background</label></div>
+    </div>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

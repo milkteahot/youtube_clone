@@ -251,4 +251,16 @@ body>.infoAndUpNext>.info {
     section.upNext {
         flex: 1 1 40%;
     }
+
+    #player {
+        width: 640px;
+        height: 360px;
+    }
+
+    #player iframe {
+        width: 100%;
+        height: 100%;
+        max-width: 1000px;
+    }
+
 }
